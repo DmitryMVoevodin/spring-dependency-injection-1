@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="filmFactory" class="com.netcracker.spring.task6.FilmFactory" />
+
+    <bean id="film1" class="com.netcracker.spring.task6.Film" factory-bean="filmFactory" factory-method="createFilm">
+        <property name="id" value="1"/>
+        <property name="title" value="Ookami to Koushinryou" />
+        <property name="country" value="Japan" />
+        <property name="gener" value="Drama" />
+        <property name="year" value="2008" />
+        <property name="profitFromSales" value="100.23" />
+    </bean>
+
+    <bean id="film2" class="com.netcracker.spring.task6.Film" factory-bean="filmFactory" factory-method="createFilm">
+        <property name="id" value="2"/>
+        <property name="title" value="Tate no Yuusha no Nariagari" />
+        <property name="country" value="Japan" />
+        <property name="gener" value="Fantasy" />
+        <property name="year" value="2019" />
+        <property name="profitFromSales" value="500.88" />
+    </bean>
+
+
+</beans>

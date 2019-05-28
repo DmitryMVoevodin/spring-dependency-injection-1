@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+
+
+    <bean id="fish1" class="com.netcracker.spring.task5.forByName.Fish">
+        <property name="title" value="Perch" />
+        <property name="weight" value="200" />
+    </bean>
+    <bean id="fish" class="com.netcracker.spring.task5.forByName.Fish">
+        <property name="title" value="Brim" />
+        <property name="weight" value="400" />
+    </bean>
+    <bean id="fish2" class="com.netcracker.spring.task5.forByName.Fish">
+        <property name="title" value="Pike" />
+        <property name="weight" value="800" />
+    </bean>
+    <bean id="lake" class="com.netcracker.spring.task5.forByName.Lake" autowire="byName"/>
+
+
+
+    <bean id="woodpecker" class="com.netcracker.spring.task5.forByType.Bird">
+        <property name="title" value="Woodpecker" />
+        <property name="weight" value="1" />
+    </bean>
+    <bean id="sky" class="com.netcracker.spring.task5.forByType.Sky" autowire="byType"/>
+
+
+
+    <bean id="fox" class="com.netcracker.spring.task5.forConstructor.Animal">
+        <property name="title" value="Fox" />
+        <property name="weight" value="5" />
+    </bean>
+    <bean id="forest" class="com.netcracker.spring.task5.forConstructor.Forest" autowire="constructor"/>
+
+
+
+    <bean id="rocket" class="com.netcracker.spring.task5.forNo.Rocket">
+        <property name="title" value="Tomol-M" />
+        <property name="weight" value="1000" />
+    </bean>
+    <bean id="space" class="com.netcracker.spring.task5.forNo.Space" autowire="no">
+        <property name="rocket" ref="rocket" />
+    </bean>
+
+
+
+    <bean id="foodFromRefrigerator" class="com.netcracker.spring.task5.forAnnotation.Food">
+        <property name="title" value="Meat" />
+        <property name="weight" value="10" />
+    </bean>
+    <bean id="foodAnother" class="com.netcracker.spring.task5.forAnnotation.Food">
+        <property name="title" value="Cheese" />
+        <property name="weight" value="2" />
+    </bean>
+    <bean id="refrigerator" class="com.netcracker.spring.task5.forAnnotation.Refrigerator" />
+
+</beans>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookCI1" class="com.netcracker.spring.task1.implem.PaperBook">
+        <constructor-arg name="title" value="Evgeniy Onegin" type="java.lang.String" />
+        <constructor-arg name="author">
+            <bean class="com.netcracker.spring.task1.Author">
+                <property name="name" value="Pushkin" />
+                <property name="email" value="pushkin@gmail.com" />
+            </bean>
+        </constructor-arg>
+        <constructor-arg name="pages" value="350" type="int" />
+        <constructor-arg name="count" value="20" type="int" />
+        <constructor-arg name="price" value="400" type="double" />
+    </bean>
+
+    <bean id="bookCI2" class="com.netcracker.spring.task1.implem.EBook">
+        <constructor-arg name="title" value="Mu-mu" type="java.lang.String" />
+        <constructor-arg name="author" type="com.netcracker.spring.task1.Author">
+            <bean class="com.netcracker.spring.task1.Author">
+                <constructor-arg name="name" value="Turgenev" type="java.lang.String" />
+                <constructor-arg name="email" value="turgenev@mail.ru" type="java.lang.String" />
+            </bean>
+        </constructor-arg>
+        <constructor-arg name="pages" value="100" type="int" />
+        <constructor-arg name="count" value="5" type="int" />
+        <constructor-arg name="price" value="200" type="double" />
+    </bean>
+
+    <bean id="bookSI1" class="com.netcracker.spring.task1.implem.AudioBook">
+        <property name="title" value="Na dne" />
+        <property name="author">
+            <bean class="com.netcracker.spring.task1.Author">
+                <property name="name" value="Gorkiy" />
+                <property name="email" value="gorkiy@gmail.com" />
+            </bean>
+        </property>
+        <property name="pages" value="100" />
+        <property name="count" value="10" />
+        <property name="price" value="100" />
+    </bean>
+
+    <bean id="bookSI2" class="com.netcracker.spring.task1.implem.BookForBlind">
+        <property name="title" value="Idiot" />
+        <property name="author">
+            <bean class="com.netcracker.spring.task1.Author">
+                <constructor-arg name="name" value="dostoevsky" type="java.lang.String" />
+                <constructor-arg name="email" value="dost@mail.ru" type="java.lang.String" />
+            </bean>
+        </property>
+        <property name="pages" value="800" />
+        <property name="count" value="14" />
+        <property name="price" value="500" />
+    </bean>
+
+
+
+
+
+    <bean id="noAuthor" class="com.netcracker.spring.task1.Author">
+        <property name="name" value="NaN" />
+        <property name="email" value="NaN" />
+    </bean>
+
+    <bean id="bookWithoutAuthor1" class="com.netcracker.spring.task1.implem.PaperBook">
+        <property name="title" value="Book X" />
+        <property name="author" ref="noAuthor"/>
+        <property name="pages" value="100" />
+        <property name="count" value="100" />
+        <property name="price" value="100" />
+    </bean>
+    <bean id="bookWithoutAuthor2" class="com.netcracker.spring.task1.implem.PaperBook">
+        <property name="title" value="Book Y" />
+        <property name="author" ref="noAuthor"/>
+        <property name="pages" value="300" />
+        <property name="count" value="400" />
+        <property name="price" value="200" />
+    </bean>
+
+</beans>

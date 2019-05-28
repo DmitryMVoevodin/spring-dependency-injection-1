@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="simplconf" class="com.netcracker.spring.task4.SimpleConfig" />
+
+    <bean id="human" class="com.netcracker.spring.task4.Human">
+        <property name="name" value="#{simplconf.name}" />
+        <property name="age" value="#{simplconf.age}" />
+        <property name="sex" value="#{simplconf.sex}" />
+        <property name="email" value="#{simplconf.email}" />
+    </bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="carfac1" class="com.netcracker.spring.task7.CarFactory" scope="singleton">
+        <property name="transmission" value="Mechanical" />
+        <property name="wheels" value="Studded" />
+        <property name="color" value="black" />
+        <property name="engine" ref="engine" />
+    </bean>
+
+    <bean id="carfac2" class="com.netcracker.spring.task7.CarFactoryWithLookup" scope="singleton">
+        <property name="transmission" value="Mechanical" />
+        <property name="wheels" value="Studded" />
+        <property name="color" value="black" />
+        <lookup-method name="lookupForEngine" bean="engine" />
+    </bean>
+
+    <bean id="engine" class="com.netcracker.spring.task7.Engine" scope="prototype" />
+
+</beans>

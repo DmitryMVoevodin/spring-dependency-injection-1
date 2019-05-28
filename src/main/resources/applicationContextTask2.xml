@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="sB" class="com.netcracker.spring.task2.implem.Battleship" scope="prototype">
+        <property name="country" value="Pirates" />
+        <property name="numberOfDock" value="5" />
+    </bean>
+    <bean id="sF" class="com.netcracker.spring.task2.implem.Frigate" scope="prototype">
+        <property name="country" value="Great Britain" />
+        <property name="numberOfDock" value="2" />
+    </bean>
+    <bean id="sC" class="com.netcracker.spring.task2.implem.Caravel" scope="prototype">
+        <property name="country" value="France" />
+        <property name="numberOfDock" value="1" />
+    </bean>
+    <bean id="sL" class="com.netcracker.spring.task2.implem.Lugger" scope="prototype">
+        <property name="country" value="Spain" />
+        <property name="numberOfDock" value="4" />
+    </bean>
+
+
+    <bean id="harborCI" class="com.netcracker.spring.task2.Harbor">
+        <constructor-arg name="shipList">
+            <list value-type="com.netcracker.spring.task2.ShipI">
+                <ref bean="sB" />
+                <ref bean="sF" />
+            </list>
+        </constructor-arg>
+        <constructor-arg name="shipSet">
+            <set value-type="com.netcracker.spring.task2.ShipI">
+                <ref bean="sC" />
+                <ref bean="sC" />
+                <ref bean="sC" />
+                <ref bean="sL" />
+                <ref bean="sC" />
+                <ref bean="sL" />
+            </set>
+        </constructor-arg>
+        <constructor-arg name="shipMap">
+            <map key-type="java.lang.Integer" value-type="com.netcracker.spring.task2.ShipI">
+                <entry key="1" value-ref="sB" />
+                <entry key="2" value-ref="sB" />
+                <entry key="3" value-ref="sB" />
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="harborSI" class="com.netcracker.spring.task2.Harbor">
+        <property name="shipList">
+            <list value-type="com.netcracker.spring.task2.ShipI">
+                <ref bean="sB" />
+                <ref bean="sF" />
+            </list>
+        </property>
+        <property name="shipSet">
+            <set value-type="com.netcracker.spring.task2.ShipI">
+                <ref bean="sC" />
+                <ref bean="sC" />
+                <ref bean="sC" />
+                <ref bean="sL" />
+                <ref bean="sC" />
+                <ref bean="sL" />
+            </set>
+        </property>
+        <property name="shipMap">
+            <map key-type="java.lang.Integer" value-type="com.netcracker.spring.task2.ShipI">
+                <entry key="1" value-ref="sB" />
+                <entry key="2" value-ref="sB" />
+                <entry key="3" value-ref="sB" />
+            </map>
+        </property>
+    </bean>
+
+</beans>

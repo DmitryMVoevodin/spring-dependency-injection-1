@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="human" class="com.netcracker.spring.task3.Human">
+        <property name="name" value="Tom" />
+        <property name="age" value="45" />
+        <property name="sex" value="male" />
+        <property name="email" value="brown@mail.ru" />
+    </bean>
+
+    <bean id="javaD" class="com.netcracker.spring.task3.JavaDeveloper" parent="human">
+        <property name="name" value="Jack" />
+        <property name="age" value="35" />
+        <property name="technologies" value="Java, Spring, Android, SQL, JS" />
+    </bean>
+
+    <bean id="cppD" class="com.netcracker.spring.task3.CppDeveloper" parent="human">
+        <property name="email" value="fox@mail.ru" />
+        <property name="technologies" value="C++, Qt, C#" />
+    </bean>
+
+</beans>
